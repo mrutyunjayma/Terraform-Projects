@@ -13,14 +13,14 @@ This project demonstrates **Terraform using local state files**.
 ---
 
 ## 📂 Files in this project
-
+```
 local_state/
 ├── main.tf # Main Terraform resources
 ├── variables.tf # Variables
 ├── outputs.tf # Output definitions
 ├── terraform.tf # Terraform configuration
 ├── .gitignore # Ignored files
-
+```
 ---
 
 ## 🚀 Usage
