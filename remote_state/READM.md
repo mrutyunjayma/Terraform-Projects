@@ -1,25 +1,33 @@
-# Terraform Project with Local State
-
-This project demonstrates **Terraform using local state files**.
+This project demonstrates **Terraform using a remote backend** (AWS S3 + DynamoDB).
 
 ---
 
 ## 📝 Features
 
-- Basic Terraform setup with local state
-- Resource creation using AWS provider
-- Output variables to display resource information
+- Store Terraform state in a remote S3 bucket
+- Enable state locking using DynamoDB to avoid conflicts
+- Output variables to show resource details
 
 ---
 
 ## 📂 Files in this project
-
-local_state/
-├── main.tf # Main Terraform resources
+```
+remote_state/
+├── backend.tf # Remote backend configuration (S3 + DynamoDB)
+├── main.tf # Terraform resources
 ├── variables.tf # Variables
 ├── outputs.tf # Output definitions
 ├── terraform.tf # Terraform configuration
 ├── .gitignore # Ignored files
+```
+
+---
+
+## 🛠 Prerequisites
+
+- AWS account with IAM user credentials
+- AWS CLI configured
+- Terraform installed
 
 ---
 
@@ -34,14 +42,17 @@ Plan:
 terraform plan
 ```
 Apply:
+
 ```
 terraform apply
 ```
-State is stored locally in terraform.tfstate.
+Terraform state is stored in the S3 bucket and locked using DynamoDB.
 
-Destroy resources:
+Destroy resources when done:
 ```
 terraform destroy
 ```
 📌 Notes
-This setup is ideal for learning and testing, not for production or team collaboration.
+Remote backend is suitable for team collaboration.
+
+Make sure your S3 bucket and DynamoDB table names are unique.
