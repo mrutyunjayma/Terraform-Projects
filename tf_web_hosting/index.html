@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DevOps — Build, Ship, Observe</title>
+  <meta name="description" content="A clean static DevOps landing page showcasing tools, pipeline, and best practices." />
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --muted:#94a3b8;
+      --accent:#06b6d4;
+      --glass: rgba(255,255,255,0.03);
+      --radius:14px;
+      --max:1100px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', monospace;
+      color-scheme: dark;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, 'Helvetica Neue', Arial;
+      background: linear-gradient(180deg,#071024 0%, #061226 50%); color:#e6eef8;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      padding:36px 20px;
+      display:flex; justify-content:center;
+    }
+
+    .wrap{width:100%; max-width:var(--max)}
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
+    .brand{display:flex;gap:14px;align-items:center}
+    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#8b5cf6);display:flex;align-items:center;justify-content:center;font-weight:700}
+    .logo span{font-family:var(--mono);font-size:20px}
+    h1{margin:0;font-size:28px}
+    p.lead{margin:4px 0 0;color:var(--muted)}
+
+    nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-weight:600}
+
+    .grid{display:grid;grid-template-columns:1fr 360px;gap:22px;align-items:start}
+
+    .hero{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent); padding:26px;border-radius:var(--radius);box-shadow:0 6px 20px rgba(2,6,23,0.6)}
+    .hero h2{font-size:22px;margin:0 0 8px}
+    .kpi{display:flex;gap:12px;margin-top:16px}
+    .chip{background:var(--glass);padding:8px 12px;border-radius:999px;color:var(--muted);font-weight:600}
+
+    .card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+    .tools{display:flex;flex-wrap:wrap;gap:10px}
+    .tool{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:10px 12px;border-radius:10px;font-weight:700}
+
+    .pipeline{margin-top:18px;display:flex;align-items:center;gap:10px}
+    .stage{flex:1;padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);text-align:center;font-weight:700}
+
+    .right{position:relative}
+    .cta{display:flex;flex-direction:column;gap:12px}
+    .btn{background:linear-gradient(90deg,var(--accent),#8b5cf6);border:none;padding:12px 14px;border-radius:12px;color:black;font-weight:800;cursor:pointer}
+    .ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px 12px;border-radius:10px;color:var(--muted);cursor:pointer}
+
+    .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}
+    .feature{padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005))}
+    .feature h4{margin:6px 0 6px}
+    .small{font-size:13px;color:var(--muted)}
+
+    footer{margin-top:22px;color:var(--muted);display:flex;justify-content:space-between}
+
+    pre{background:rgba(0,0,0,0.18);padding:12px;border-radius:8px;overflow:auto;font-family:var(--mono);font-size:13px}
+
+    @media (max-width:900px){.grid{grid-template-columns:1fr}.right{order:2}.hero{order:1}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo"><span>DV</span></div>
+        <div>
+          <h1>DevOps Playground</h1>
+          <p class="lead">Automate. Observe. Improve — a simple static page for DevOps enthusiasts.</p>
+        </div>
+      </div>
+      <nav>
+        <a href="#tools">Tools</a>
+        <a href="#pipeline">Pipeline</a>
+        <a href="#snippets">Snippets</a>
+      </nav>
+    </header>
+
+    <main class="grid">
+      <section class="hero card">
+        <h2>Ship faster with reliable automation</h2>
+        <p class="small">This page highlights common DevOps concepts, a sample pipeline, recommended tools, and a copyable CI snippet.</p>
+
+        <div class="kpi">
+          <div class="chip">CI runs: <strong>1,234</strong></div>
+          <div class="chip">Avg deploy: <strong>6m 22s</strong></div>
+          <div class="chip">Errors/day: <strong>0.03</strong></div>
+        </div>
+
+        <div id="tools" style="margin-top:18px">
+          <h3 style="margin:8px 0 10px">Toolbelt</h3>
+          <div class="tools">
+            <div class="tool">Docker</div>
+            <div class="tool">Kubernetes</div>
+            <div class="tool">Terraform</div>
+            <div class="tool">Jenkins</div>
+            <div class="tool">GitHub Actions</div>
+            <div class="tool">Prometheus</div>
+            <div class="tool">Grafana</div>
+            <div class="tool">Argo CD</div>
+          </div>
+        </div>
+
+        <div id="pipeline" class="pipeline">
+          <div class="stage">Code</div>
+          <div class="stage">Build</div>
+          <div class="stage">Test</div>
+          <div class="stage">Deploy</div>
+          <div class="stage">Observe</div>
+        </div>
+
+        <div style="margin-top:16px">
+          <h3 style="margin:6px 0">Why DevOps?</h3>
+          <p class="small">DevOps reduces cycle time by introducing automation and feedback loops — CI/CD, infrastructure as code, and monitoring are the pillars.</p>
+        </div>
+
+        <div id="snippets" style="margin-top:12px">
+          <h3 style="margin:6px 0">Quick CI snippet</h3>
+          <pre><code># Basic GitHub Actions workflow (copy & paste)
+name: CI
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with: node-version: '18'
+      - name: Install
+        run: npm ci
+      - name: Test
+        run: npm test
+</code></pre>
+        </div>
+      </section>
+
+      <aside class="right">
+        <div class="card">
+          <h3 style="margin-top:0">Get started</h3>
+          <p class="small">Clone this template, host on GitHub Pages, Netlify, or any static host. Use this as a README landing page for DevOps projects.</p>
+          <div class="cta">
+            <button class="btn" onclick="location.href='#snippets'">Copy CI Snippet</button>
+            <button class="ghost" onclick="alert('Try: git clone <repo> && open index.html')">How to use</button>
+          </div>
+
+          <div class="cards">
+            <div class="feature">
+              <h4>Infrastructure as Code</h4>
+              <p class="small">Make environments reproducible with Terraform or CloudFormation.</p>
+            </div>
+            <div class="feature">
+              <h4>Observability</h4>
+              <p class="small">Use metrics, traces, and logs to find and fix issues faster.</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="height:12px"></div>
+
+        <div class="card" style="text-align:center">
+          <h4 style="margin:8px 0">Contact</h4>
+          <p class="small">Want this customized? Ping me — provide color, logo, or content and I’ll update it.</p>
+          <div style="margin-top:10px;color:var(--muted);font-weight:700">mrutyunjaymasanta@gmail.com</div>
+        </div>
+
+      </aside>
+    </main>
+
+    <footer>
+      <div>© DevOps Playground — Static Demo</div>
+      <div>Made with ❤️ • Minimal • Responsive</div>
+    </footer>
+  </div>
+</body>
+</html>
