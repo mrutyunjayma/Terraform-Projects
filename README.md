@@ -6,13 +6,14 @@ Each project demonstrates different use cases of Infrastructure as Code (IaC) us
 ---
 
 ## 📂 Project Structure
-
+```
 terraform-project/
 │── tf_web_hosting/ # Static website hosting project using AWS S3
 │── local_state/ # Example project using local Terraform state
 │── remote_state/ # Example project using remote Terraform state (e.g., S3 backend)
 │── .gitignore # Ignore Terraform cache, state files, etc.
 │── README.md # Project documentation (this file)
+```
 
 ```.
 ├── .gitignore
